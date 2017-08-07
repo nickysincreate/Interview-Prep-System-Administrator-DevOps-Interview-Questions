@@ -236,7 +236,7 @@ Find all files which have been accessed within the last 30 days.
 Explain the following command (date ; ps -ef | awk '{print $1}' | sort | uniq | wc -l ) >> Activity.log
 Write a script to list all the differences between two directories.
 In a log file with contents as <TIME> : [MESSAGE] : [ERROR_NO] - Human readable text display summary/count of specific error numbers that occurred every hour or a specific hour.
-####[⬆] Other Great References:
+#### Other Great References:
 
 Some questions are 'borrowed' from other great references like:
 
