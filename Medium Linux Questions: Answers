@@ -1,1 +1,13 @@
+What does an & after a command do?
+      To get your prompt back immediately, and run the process in the background.
+      What are the function of them?
+      nohup allows the background process to continue running even after the user logs out (or exits the initiating shell).
+      >& redirects both standard output and standard error into the log file.
+      & runs the whole thing in the background, giving you your prompt back immediately.
+      Explanation:
+      Every Linux process opens three I/O channels, an input "stdin", a standard output "stdout" and a standard error output "stderr". They can be used for binary but are traditionally text. When most programs see stdin close, they exit (this can be changed by the programmer).
+      When the parent shell exits, stdin is closed on the children, and (often, usually) the children exit as well. In addition the children receive a software signal, SIGHUP, indicating the user has "hung up" (formerly, the modem) and the default here is to exit as well. (Note, a programmer can change all of this when writing the program).
+      So, what nohup does is give the child process a separate I/O environment, tying up the ins and outs to something not tied to the parent shell, and shielding the child from the SIGHUP signal. Once the user disconnects, you will see the nohup background process owned by init (process 1), not the user's shell.
+      However nohup cannot do the job completely if the process is run in the foreground, so & is used to run the program in the background, where it can happily stay running with or without a user logged in.
+
 
